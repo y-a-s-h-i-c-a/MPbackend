@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const User1 = require("./models/contact");
 const User = require("./models/user.model");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
+const { validateToken } = require("./middlewares");
 const bcrypt = require("bcryptjs");
 const fileUpload = require("express-fileupload");
 const { removeBackgroundFromImageFile } = require("remove.bg");
@@ -20,8 +22,8 @@ const validationSchema = Joi.object({
 dotenv.config();
 
 const app = express();
-const cors = require("cors");
-const { validateToken } = require("./middlewares");
+
+
 
 app.use(cors());
 app.use(express.json());
